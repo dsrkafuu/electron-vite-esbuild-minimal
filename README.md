@@ -5,8 +5,8 @@ Clean minimal template to build an Electron app with Vite and ESBuild.
 ## Major Dependencies
 
 - Package Manager: NPM & PNPM
-- Main: Electron & Typescript & ESBuild
-- Renderer: React & Typescript & Vite
+- Main: Electron & TypeScript & ESBuild
+- Renderer: React & TypeScript & Vite
 - Project Management: Prettier & ESLint
 - Build: Electron Builder
 
