@@ -10,12 +10,15 @@ declare interface ILinkExtProps {
 }
 
 const LinkExt = memo((props: ILinkExtProps) => {
-  const handleClick = useCallback<MouseEventHandler<HTMLAnchorElement>>((e) => {
-    e.preventDefault();
-    if (props.href) {
-      window.ipc['window:ext-url']({ url: props.href });
-    }
-  }, []);
+  const handleClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
+    (e) => {
+      e.preventDefault();
+      if (props.href) {
+        window.ipc['window:ext-url']({ url: props.href });
+      }
+    },
+    [props.href]
+  );
 
   return (
     <Typography.Link onClick={handleClick} {...props}>
