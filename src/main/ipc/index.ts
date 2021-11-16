@@ -1,6 +1,6 @@
 import { ipcMain, shell } from 'electron';
 
 // open external url
-ipcMain.on('window:ext-url', (e, payload: IIPCWindowExtURLProps) => {
+ipcMain.on('OPEN_EXTERNAL_URL', (e, payload: IPCOpenExternalURLProps) => {
   shell.openExternal(payload.url);
 });

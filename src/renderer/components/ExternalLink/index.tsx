@@ -1,7 +1,7 @@
-import React, { memo, MouseEventHandler, ReactNode, useCallback } from 'react';
+import React, { MouseEventHandler, ReactNode, useCallback } from 'react';
 import { Typography } from 'antd';
 
-declare interface ILinkExtProps {
+declare interface ExternalLinkProps {
   children?: ReactNode;
   className?: string;
   href?: string;
@@ -9,12 +9,12 @@ declare interface ILinkExtProps {
   rel?: string;
 }
 
-const LinkExt = memo((props: ILinkExtProps) => {
+function ExternalLink(props: ExternalLinkProps) {
   const handleClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
     (e) => {
       e.preventDefault();
       if (props.href) {
-        window.ipc['window:ext-url']({ url: props.href });
+        window.ipc['OPEN_EXTERNAL_URL']({ url: props.href });
       }
     },
     [props.href]
@@ -25,8 +25,6 @@ const LinkExt = memo((props: ILinkExtProps) => {
       {props.children}
     </Typography.Link>
   );
-});
+}
 
-LinkExt.displayName = 'LinkExternal';
-
-export default LinkExt;
+export default ExternalLink;

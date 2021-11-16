@@ -1,10 +1,10 @@
-import React, { useState, memo } from 'react';
+import React, { useState } from 'react';
 import { Button, Typography } from 'antd';
-import LinkExt from './components/LinkExt';
+import ExternalLink from './components/ExternalLink';
 import './App.css';
 import logo from './assets/logo.svg';
 
-const App = memo(() => {
+function App() {
   const [count, setCount] = useState(0);
 
   return (
@@ -21,38 +21,36 @@ const App = memo(() => {
           Edit <code>app.tsx</code> and save to test HMR updates.
         </p>
         <p>
-          <LinkExt
+          <ExternalLink
             className='app-link'
             href='https://www.electronjs.org'
             target='_blank'
             rel='noopener noreferrer'
           >
             Electron
-          </LinkExt>
+          </ExternalLink>
           {' | '}
-          <LinkExt
+          <ExternalLink
             className='app-link'
             href='https://reactjs.org'
             target='_blank'
             rel='noopener noreferrer'
           >
             React
-          </LinkExt>
+          </ExternalLink>
           {' | '}
-          <LinkExt
+          <ExternalLink
             className='app-link'
             href='https://vitejs.dev'
             target='_blank'
             rel='noopener noreferrer'
           >
             Vite
-          </LinkExt>
+          </ExternalLink>
         </p>
       </Typography>
     </div>
   );
-});
-
-App.displayName = 'RootApp';
+}
 
 export default App;

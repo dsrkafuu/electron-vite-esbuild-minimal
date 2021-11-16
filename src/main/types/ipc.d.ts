@@ -1,3 +1,3 @@
-declare interface IIPCWindowExtURLProps {
+declare interface IPCOpenExternalURLProps {
   url: string;
 }

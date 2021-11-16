@@ -4,8 +4,8 @@ const ipc = {
   /**
    * open url at external website
    */
-  'window:ext-url': (payload: IIPCWindowExtURLProps) => {
-    ipcRenderer.send('window:ext-url', payload);
+  'OPEN_EXTERNAL_URL': (payload: IPCOpenExternalURLProps) => {
+    ipcRenderer.send('OPEN_EXTERNAL_URL', payload);
   },
 };
 
