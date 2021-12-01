@@ -7,12 +7,12 @@
   "scripts": {
     "post:package": "node -e \"try{require('./scripts/utils').writePackage()}catch{}\"",
     "post:builder": "electron-builder install-app-deps",
-    "postinstall": "concurrently -m 1 npm:post:package npm:post:builder",
-    "dev:app": "node ./scripts/dev.js",
-    "dev": "cross-env NODE_ENV=development concurrently npm:dev:app",
+    "postinstall": "npm run post:package && npm run post:builder",
+    "dev": "cross-env NODE_ENV=development node ./scripts/dev.js",
     "build:app": "node ./scripts/build.js",
     "build:electron": "electron-builder build -mwl",
-    "build": "cross-env NODE_ENV=production concurrently -m 1 npm:build:app npm:build:electron"
+    "build:all": "npm run build:app && npm run build:electron",
+    "build": "cross-env NODE_ENV=production npm run build"
   },
   "dependencies": {
     "antd": "~4.17.2",
@@ -26,9 +26,8 @@
     "@types/react-dom": "~17.0.11",
     "@typescript-eslint/eslint-plugin": "~5.5.0",
     "@typescript-eslint/parser": "~5.5.0",
-    "@vitejs/plugin-react-refresh": "~1.3.6",
-    "chalk": "~5.0.0",
-    "concurrently": "~6.4.0",
+    "@vitejs/plugin-react": "~1.1.0",
+    "chalk": "~4.1.2",
     "cross-env": "~7.0.3",
     "electron": "16.0.3",
     "electron-builder": "~22.14.5",

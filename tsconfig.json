@@ -10,16 +10,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/renderer/types",
-      "./src/main/types"
-    ],
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "exclude": ["./node_modules", "./app", "./build", "./src/renderer/public"]
+  "include": ["./src"]
 }

@@ -22,7 +22,9 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:3000');
     mainWindow.webContents.toggleDevTools();
   } else {
-    const index = url.pathToFileURL(path.resolve(__dirname, '../renderer/index.html')).toString();
+    const index = url
+      .pathToFileURL(path.resolve(__dirname, '../renderer/index.html'))
+      .toString();
     mainWindow.loadURL(index);
   }
 }

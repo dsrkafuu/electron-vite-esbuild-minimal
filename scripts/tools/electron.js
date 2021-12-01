@@ -1,5 +1,5 @@
 const childProcess = require('child_process');
-const chalk = require('chalk').default;
+const chalk = require('chalk');
 const electron = require('electron');
 const { wait } = require('../utils');
 
@@ -13,14 +13,23 @@ let electronProcess = null;
  * @returns {boolean}
  */
 function textFilter(str = '') {
+  if (!str) {
+    return false;
+  }
   // macos cjk input error
-  if (str.includes('Text input context does not respond to _valueForTIProperty')) {
+  if (
+    str.includes('Text input context does not respond to _valueForTIProperty')
+  ) {
     return false;
   }
   if (str.includes('_TIPropertyValueIsValid called with 4 on nil context')) {
     return false;
   }
-  if (str.includes('getApplicationProperty:reply: called with incorrect property value 4')) {
+  if (
+    str.includes(
+      'getApplicationProperty:reply: called with incorrect property value 4'
+    )
+  ) {
     return false;
   }
   return true;

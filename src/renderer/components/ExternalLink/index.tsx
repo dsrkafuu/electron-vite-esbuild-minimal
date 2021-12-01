@@ -1,7 +1,7 @@
-import React, { MouseEventHandler, ReactNode, useCallback } from 'react';
+import { MouseEventHandler, ReactNode, useCallback } from 'react';
 import { Typography } from 'antd';
 
-declare interface ExternalLinkProps {
+interface ExternalLinkProps {
   children?: ReactNode;
   className?: string;
   href?: string;

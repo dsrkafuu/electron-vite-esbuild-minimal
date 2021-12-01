@@ -1,5 +1,5 @@
 const esbuild = require('esbuild');
-const chalk = require('chalk').default;
+const chalk = require('chalk');
 const { writePackage } = require('../utils');
 const { common, main } = require('../paths');
 

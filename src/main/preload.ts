@@ -4,7 +4,7 @@ const ipc = {
   /**
    * open url at external website
    */
-  'OPEN_EXTERNAL_URL': (payload: IPCOpenExternalURLProps) => {
+  OPEN_EXTERNAL_URL: (payload: IPCOpenExternalURLProps) => {
     ipcRenderer.send('OPEN_EXTERNAL_URL', payload);
   },
 };

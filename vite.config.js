@@ -1,14 +1,14 @@
 const { defineConfig } = require('vite');
-const { default: reactRefresh } = require('@vitejs/plugin-react-refresh');
+const react = require('@vitejs/plugin-react').default;
 const { common, renderer } = require('./scripts/paths');
 
 /**
  * https://vitejs.dev/config/
  */
 module.exports = defineConfig({
-  plugins: [reactRefresh()],
-
   base: './', // correct base url inside electron container
+
+  plugins: [react()],
 
   root: renderer.root,
   build: {
