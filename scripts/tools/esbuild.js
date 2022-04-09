@@ -12,6 +12,7 @@ const options = {
   outdir: main.outdir,
   entryPoints: [main.entry, main.preload],
   external: ['electron'],
+  target: 'esnext',
 };
 
 /**

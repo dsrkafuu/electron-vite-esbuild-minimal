@@ -14,6 +14,7 @@ module.exports = defineConfig({
   build: {
     outDir: renderer.outdir,
     emptyOutDir: true,
+    target: 'esnext',
   },
 
   resolve: {

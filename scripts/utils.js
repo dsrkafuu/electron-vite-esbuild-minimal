@@ -1,5 +1,4 @@
 const fs = require('fs');
-const fse = require('fs-extra');
 const { common } = require('./paths');
 
 /**
@@ -22,14 +21,11 @@ function writePackage() {
   if (!fs.existsSync(appdir)) {
     fs.mkdirSync(appdir);
   }
-  const json = fse.readJSONSync(common.package);
+  const json = JSON.parse(fs.readFileSync(common.package, 'utf-8'));
   json.main = './main/index.js';
   delete json.build;
   delete json.scripts;
-  fse.writeJSONSync(common.apppackage, json, {
-    encoding: 'utf-8',
-    spaces: 2,
-  });
+  fs.writeFileSync(common.apppackage, JSON.stringify(json, null, 2), 'utf-8');
 }
 
 module.exports = {

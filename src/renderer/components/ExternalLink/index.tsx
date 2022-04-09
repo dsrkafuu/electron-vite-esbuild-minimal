@@ -1,12 +1,11 @@
 import { MouseEventHandler, ReactNode, useCallback } from 'react';
-import { Typography } from 'antd';
 
 interface ExternalLinkProps {
-  children?: ReactNode;
-  className?: string;
-  href?: string;
+  href: string;
   target?: string;
   rel?: string;
+  className?: string;
+  children?: ReactNode;
 }
 
 function ExternalLink(props: ExternalLinkProps) {
@@ -21,9 +20,9 @@ function ExternalLink(props: ExternalLinkProps) {
   );
 
   return (
-    <Typography.Link onClick={handleClick} {...props}>
+    <a onClick={handleClick} {...props}>
       {props.children}
-    </Typography.Link>
+    </a>
   );
 }
 
