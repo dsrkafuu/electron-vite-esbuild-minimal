@@ -7,12 +7,11 @@
   "scripts": {
     "post:package": "node -e \"try{require('./scripts/utils').writePackage()}catch{}\"",
     "post:builder": "electron-builder install-app-deps",
-    "postinstall": "npm run post:package && npm run post:builder",
+    "postinstall": "run-s post:package post:builder",
     "dev": "cross-env NODE_ENV=development node ./scripts/dev.js",
     "build:app": "node ./scripts/build.js",
     "build:electron": "electron-builder build -mwl",
-    "build:all": "npm run build:app && npm run build:electron",
-    "build": "cross-env NODE_ENV=production npm run build"
+    "build": "cross-env NODE_ENV=production run-s build:app build:electron"
   },
   "dependencies": {
     "react": "~18.0.0",
@@ -34,6 +33,7 @@
     "eslint": "~8.12.0",
     "eslint-plugin-react": "~7.29.4",
     "eslint-plugin-react-hooks": "~4.4.0",
+    "npm-run-all": "~4.1.5",
     "prettier": "~2.6.2",
     "typescript": "~4.6.3",
     "vite": "~2.9.1"
